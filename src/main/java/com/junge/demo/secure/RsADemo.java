@@ -43,13 +43,15 @@ public class RsADemo {
 		try {
 			keyPairGenerator = KeyPairGenerator.getInstance("RSA");
 			SecureRandom secureRandom = new SecureRandom(new Date().toString().getBytes());
-			keyPairGenerator.initialize(1024, secureRandom);
+			keyPairGenerator.initialize(2048, secureRandom);
 			KeyPair keyPair = keyPairGenerator.genKeyPair();
 			byte[] publicKeyBytes = keyPair.getPublic().getEncoded();
+			System.out.println("publicKeyBytes:"+Base64.getEncoder().encodeToString(publicKeyBytes));
 			FileOutputStream fos = new FileOutputStream(PUBLIC_KEY_PATH);
 			fos.write(publicKeyBytes);
 			fos.close();
 			byte[] privateKeyBytes = keyPair.getPrivate().getEncoded();
+			System.out.println("privateKeyBytes:"+Base64.getEncoder().encodeToString(privateKeyBytes));
 			fos = new FileOutputStream(PRIVATE_KEY_PATH);
 			fos.write(privateKeyBytes);
 			fos.close();
