@@ -1,5 +1,7 @@
 package com.junge.demo.secure;
 
+import java.net.URI;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -33,6 +35,6 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+    	URI u = URI.create("192.168.20.66:7301");
     }
 }
